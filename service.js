@@ -1,12 +1,34 @@
-var Service = require('node-windows').Service;
-var svc = new Service({
- name:'Whats CCL',
- description: 'Servico Whats CCL',
- script: 'C:\\Path\\ApiRestMultiDeviceBaileys-\\src\\server.js'
+const Service = require('node-windows').Service;
+const path = require('path');
+
+const svc = new Service({
+  // Nome do serviço
+  name: 'Whats CCL',
+  // Descrição do serviço
+  description: 'Servico Whats CCL.',
+  // Diretorio do arquivo de entrada
+  script: path.join(__dirname, '\\src\\server.js'),
+  //C:\Python\ApiRestMultiDeviceBaileys-\C:PythonApiRestMultiDeviceBaileys-srcserver.js does not exist or cannot be found.
+  // Variaveis de ambiente que sua aplicação precisa (não obrigatorio)
+  //env: [{
+  //  name: "NODE_ENV",
+  //  value: "production"
+  //}]
 });
 
-svc.on('install',function(){
- svc.start();
+// Instala a aplicação
+svc.on('install', function() {
+  svc.start();
+});
+
+// Verifica se já esta instalada
+svc.on('alreadyinstalled', function() {
+  console.log(`${svc.name} já foi instalado.`);
+});
+
+//Inicie o serviço
+svc.on('start',function() {
+  console.log(`${svc.name} iniciado.`);
 });
 
 svc.install();
