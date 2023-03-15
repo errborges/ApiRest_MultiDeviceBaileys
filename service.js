@@ -8,7 +8,6 @@ const svc = new Service({
   description: 'Servico Whats CCL.',
   // Diretorio do arquivo de entrada
   script: path.join(__dirname, '\\src\\server.js'),
-  //C:\Python\ApiRestMultiDeviceBaileys-\C:PythonApiRestMultiDeviceBaileys-srcserver.js does not exist or cannot be found.
   // Variaveis de ambiente que sua aplicação precisa (não obrigatorio)
   //env: [{
   //  name: "NODE_ENV",
