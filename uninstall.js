@@ -5,7 +5,7 @@ const svc = new Service({
   // Nome do serviço
   name: 'Whats CCL',
   // Diretorio do arquivo de entrada
-  script: path.join(__dirname, 'C:\Python\ApiRestMultiDeviceBaileys-\src\server.js'),
+  script: path.join(__dirname, '\\src\\server.js'),
 });
 
 svc.on('uninstall', function() {
